@@ -9,7 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Drivers/STM32F4xx_HAL_Driver/subdir.mk
+-include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -60,8 +60,8 @@ all: main-build
 main-build: 01.TEST.elf secondary-outputs
 
 # Tool invocations
-01.TEST.elf 01.TEST.map: $(OBJS) $(USER_OBJS) G:\Git_(MCU2)_Learn_STM32_Timers_CAN_RTC_PWM_Low_Power_embedded_systems_and_program_them_using_STM32_Device_HAL_APIs_step_by_step\01.TEST\STM32F429ZITX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "01.TEST.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"G:\Git_(MCU2)_Learn_STM32_Timers_CAN_RTC_PWM_Low_Power_embedded_systems_and_program_them_using_STM32_Device_HAL_APIs_step_by_step\01.TEST\STM32F429ZITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="01.TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+01.TEST.elf 01.TEST.map: $(OBJS) $(USER_OBJS) G:\Git_(MCU2)_Learn_STM32_Timers_CAN_RTC_PWM_Low_Power_embedded_systems_and_program_them_using_STM32_Device_HAL_APIs_step_by_step\01.TEST\STM32F411RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "01.TEST.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"G:\Git_(MCU2)_Learn_STM32_Timers_CAN_RTC_PWM_Low_Power_embedded_systems_and_program_them_using_STM32_Device_HAL_APIs_step_by_step\01.TEST\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="01.TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
